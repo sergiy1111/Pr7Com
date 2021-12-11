@@ -1,53 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
-
 namespace Lab7ComUser
 {
     class Program
     {
-        private const int port = 8888;
-        private const string server = "127.0.0.1";
-
+        const int port = 8888;
+        const string address = "127.0.0.1";
         static void Main(string[] args)
         {
+            Console.Write("Введіть імя:");
+            string userName = Console.ReadLine();
+            TcpClient client = null;
             try
             {
-                TcpClient client = new TcpClient();
-                client.Connect(server, port);
-
-                byte[] data = new byte[256];
-                StringBuilder response = new StringBuilder();
+                client = new TcpClient(address, port);
                 NetworkStream stream = client.GetStream();
 
-                do
+                while (true)
                 {
-                    int bytes = stream.Read(data, 0, data.Length);
-                    response.Append(Encoding.UTF8.GetString(data, 0, bytes));
+                    Console.Write(userName + ": ");
+                    // Введення повідомлення
+                    string message = Console.ReadLine();
+                    message = String.Format("{0}: {1}", userName, message);
+                    // Перетворення повідомлення в масив
+                    byte[] data = Encoding.Unicode.GetBytes(message);
+                    // Відправка повідомлення
+                    stream.Write(data, 0, data.Length);
+
+                    // Отримання відповіді
+                    data = new byte[64]; // буфер для отриманих даних
+                    StringBuilder builder = new StringBuilder();
+                    int bytes = 0;
+                    do
+                    {
+                        bytes = stream.Read(data, 0, data.Length);
+                        builder.Append(Encoding.Unicode.GetString(data, 0, bytes));
+                    }
+                    while (stream.DataAvailable);
+
+                    message = builder.ToString();
+                    Console.WriteLine("Сервер: {0}", message);
                 }
-                while (stream.DataAvailable); // пока данные есть в потоке
-
-                Console.WriteLine(response.ToString());
-
-                // Закрываем потоки
-                stream.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
                 client.Close();
             }
-            catch (SocketException e)
-            {
-                Console.WriteLine("SocketException: {0}", e);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: {0}", e.Message);
-            }
-
-            Console.WriteLine("Запрос завершен...");
-            Console.Read();
         }
     }
 }
