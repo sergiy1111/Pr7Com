@@ -1,0 +1,7 @@
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\bin\Debug\ServerChat.exe.config
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\bin\Debug\ServerChat.exe
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\bin\Debug\ServerChat.pdb
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\obj\Debug\ServerChat.csproj.AssemblyReference.cache
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\obj\Debug\ServerChat.csproj.CoreCompileInputs.cache
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\obj\Debug\ServerChat.exe
+D:\GitCon\ComWork\Pr7Com\ServerChat\ServerChat\obj\Debug\ServerChat.pdb
