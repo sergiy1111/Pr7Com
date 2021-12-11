@@ -10,59 +10,44 @@ namespace Lab7ComUser
 {
     class Program
     {
+        private const int port = 8888;
+        private const string server = "127.0.0.1";
+
         static void Main(string[] args)
         {
             try
             {
-                SendMessageFromSocket(11000);
+                TcpClient client = new TcpClient();
+                client.Connect(server, port);
+
+                byte[] data = new byte[256];
+                StringBuilder response = new StringBuilder();
+                NetworkStream stream = client.GetStream();
+
+                do
+                {
+                    int bytes = stream.Read(data, 0, data.Length);
+                    response.Append(Encoding.UTF8.GetString(data, 0, bytes));
+                }
+                while (stream.DataAvailable); // пока данные есть в потоке
+
+                Console.WriteLine(response.ToString());
+
+                // Закрываем потоки
+                stream.Close();
+                client.Close();
             }
-            catch(Exception ex)
+            catch (SocketException e)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine("SocketException: {0}", e);
             }
-            finally
+            catch (Exception e)
             {
-                Console.ReadLine();
+                Console.WriteLine("Exception: {0}", e.Message);
             }
 
-
-        }
-
-        private static void SendMessageFromSocket(int port)
-        {
-
-            byte[] bytes = new byte[1024];
-            // Соединяемся с удаленным устройством
-            // Устанавливаем удаленную точку для сокета
-            IPHostEntry ipHost = Dns.GetHostEntry("192.168.1.159"); 
-            IPAddress ipAddr = ipHost.AddressList[0];
-            IPEndPoint ipEndPoint = new IPEndPoint(ipAddr, port); 
-            Socket sender = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-            // Соединяем сокет с удаленной точкой
-            sender.Connect(ipEndPoint);
-
-            Console.Write("Введіть повідомлення: ");
-            string message = Console.ReadLine();
-
-            Console.WriteLine("Сокет підключається до	{0}	", sender.RemoteEndPoint.ToString());
-            byte[] msg = Encoding.UTF8.GetBytes(message);
-            // Отправляем данные через сокет
-            int bytesSent = sender.Send(msg);
-
-            // Получаем ответ от сервера
-            int bytesRec = sender.Receive(bytes);
-
-            Console.WriteLine("\nВідповідь від сервера	{0}\n\n", Encoding.UTF8.GetString(bytes, 0, bytesRec));
-
-            //	Используем	рекурсию	для	неоднократного	вызова
-            SendMessageFromSocket();
-            if (message.IndexOf("<TheEnd>") == -1)
-                SendMessageFromSocket(port);
-
-            // Освобождаем сокет
-            sender.Shutdown(SocketShutdown.Both); 
-            sender.Close();
+            Console.WriteLine("Запрос завершен...");
+            Console.Read();
         }
     }
 }
