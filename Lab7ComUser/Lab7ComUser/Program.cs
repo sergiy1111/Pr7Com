@@ -9,7 +9,7 @@ namespace Lab7ComUser
         const string address = "127.0.0.1";
         static void Main(string[] args)
         {
-            Console.Write("Введіть імя:");
+            Console.Write("Введiть iм'я:");
             string userName = Console.ReadLine();
             TcpClient client = null;
             try

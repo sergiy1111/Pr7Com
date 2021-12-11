@@ -5,3 +5,10 @@ C:\Users\home\source\repos\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.csproj.
 C:\Users\home\source\repos\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.csproj.CoreCompileInputs.cache
 C:\Users\home\source\repos\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.exe
 C:\Users\home\source\repos\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.pdb
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\bin\Debug\Lab7ComUser.exe.config
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\bin\Debug\Lab7ComUser.exe
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\bin\Debug\Lab7ComUser.pdb
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.csproj.AssemblyReference.cache
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.csproj.CoreCompileInputs.cache
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.exe
+C:\Users\Mrtar\GitHab\Pr7Com\Lab7ComUser\Lab7ComUser\obj\Debug\Lab7ComUser.pdb
