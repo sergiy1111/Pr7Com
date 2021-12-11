@@ -1,0 +1,7 @@
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\bin\Debug\Практична робота №8.exe.config
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\bin\Debug\Практична робота №8.exe
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\bin\Debug\Практична робота №8.pdb
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\obj\Debug\Практична робота №8.csproj.AssemblyReference.cache
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\obj\Debug\Практична робота №8.csproj.CoreCompileInputs.cache
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\obj\Debug\Практична робота №8.exe
+C:\Users\Mrtar\source\repos\Практична робота №8\Практична робота №8\obj\Debug\Практична робота №8.pdb
